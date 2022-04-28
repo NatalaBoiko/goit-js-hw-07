@@ -1,6 +1,9 @@
 {
   "editor.formatOnSave": true,
   "liveSassCompile.settings.autoprefix": [],
-  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
+  "liveSassCompile.settings.excludeList": [
+    "**/node_modules/**",
+    ".vscode/**"
+  ],
   "prettier.printWidth": 80
 }

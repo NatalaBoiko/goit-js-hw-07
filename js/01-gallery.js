@@ -5,18 +5,18 @@ console.log(galleryItems);
 
 const galleryEl = document.querySelector(".gallery");
 const makeImages = ({ preview, original, description }) => {
-  return `
-    <div class = 'gallery__item'>
-    <a class = 'gallery__link' href = '${original}'>
-      <img
-        class="gallery__image"
-        src='${preview}'
-        data-source='${original}'
-        alt='${description}'
-        />
-      </a>
-    </div>
-    `;
+  return `    
+  <div class = 'gallery__item'>
+  <a class = 'gallery__link' href = '${original}'>
+    <img
+      class="gallery__image"
+      src='${preview}'
+      data-source='${original}'
+      alt='${description}'
+      />
+    </a>
+  </div>
+  `;
 };
 
 const makeImagesList = galleryItems.map(makeImages).join("");
@@ -36,7 +36,7 @@ const onOpenModal = (evt) => {
       `);
 
   const onEscaPress = (evt) => {
-    console.log(evt);
+    // console.log(evt);
     if (evt.code === "Escape") {
       window.removeEventListener("keydown", onEscaPress);
       modal.close();
