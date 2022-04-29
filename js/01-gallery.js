@@ -25,24 +25,30 @@ galleryEl.insertAdjacentHTML("beforeend", makeImagesList);
 const onOpenModal = (evt) => {
   evt.preventDefault();
   const modalImg = evt.target.dataset.source;
-  const modal = basicLightbox.create(`
-    <img
-      class="gallery__image"
-      src='${modalImg}'
-      data-source='${modalImg}'
-      alt='${evt.target.alt}'
-      width="800"
-      height="600">
-      `);
+  const modal = basicLightbox.create(
+    `<img
+     src='${modalImg}'
+     data-source='${modalImg}'
+     alt='${evt.target.alt}'
+     class="gallery__image"
+     width="800"
+     height="600">`,
+
+    {
+      onShow: (modal) => {
+        window.addEventListener("keydown", onEscaPress);
+      },
+      onClose: (modal) => {
+        window.removeEventListener("keydown", onEscaPress);
+      },
+    }
+  );
 
   const onEscaPress = (evt) => {
-    // console.log(evt);
     if (evt.code === "Escape") {
-      window.removeEventListener("keydown", onEscaPress);
       modal.close();
     }
   };
-  window.addEventListener("keydown", onEscaPress);
 
   modal.show();
 };
